@@ -1,0 +1,47 @@
+<!--
+  @description       : 
+  @author            : SUDEER K
+  @group             : 
+  @last modified on  : 02-01-2023
+  @last modified by  : SUDEER K
+  Modifications Log
+  Ver   Date         Author     Modification
+  1.0   02-01-2023   SUDEER K   Initial Version
+-->
+<template>
+    <lightning-card icon-name="utility:display_text" title="Dictionary" class="slds-var-p-around_medium Wrapper">
+    <lightning-layout vertical-align="end" >
+        <lightning-layout-item flexibility="grow">
+            <lightning-input lwc:ref="word"></lightning-input>
+        </lightning-layout-item>
+        <lightning-layout-item class="slds-var-p-left_small">
+            <lightning-button label="Search" lwc:ref="search" variant="brand" onclick={handleSearch}>
+            </lightning-button>
+        </lightning-layout-item>
+    </lightning-layout>
+    <br/>
+    <p class="Info-Text">Type A Word And Hit Search Button To Get Meaning.</p>
+    <br/>
+   
+    <ul>
+      <div class="Content">
+        <li class="Meaning">
+          <div class="Details">
+            <template if:true={meaningData}>
+            <p>Meaning</p>
+            </template>
+            <div class="List" lwc:ref="meaningDiv"></div>
+          </div>
+        </li>
+        <template if:true={meaningData}>
+        <li class="Synonyms">
+            <div class="Details">
+              <p>Audio</p>
+              <div class="List" lwc:ref="audioDiv"></Div>
+            </div>
+          </li>
+        </template>
+        </div>
+    </ul>
+</lightning-card>
+</template>
